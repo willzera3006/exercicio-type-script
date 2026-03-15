@@ -1,0 +1,24 @@
+import { useState } from 'react';
+
+interface Tarefa {
+  id: number;
+  titulo: string;
+  concluida: boolean;
+}
+
+interface ListaTarefasProps {
+  tarefas: Tarefa[];
+  onToggle: (id: number) => void;
+}
+
+export default function ListaTarefas({ tarefas, onToggle }: ListaTarefasProps) {
+  const [filtro, setFiltro] = useState<"todas" | "pendentes" | "concluidas">("todas");
+
+  const tarefasFiltradas = tarefas.filter(t => {
+    if (filtro === "pendentes") return !t.concluida;
+    if (filtro === "concluidas") return t.concluida;
+    return true;
+  });
+
+  return { tarefasFiltradas, setFiltro };
+}
