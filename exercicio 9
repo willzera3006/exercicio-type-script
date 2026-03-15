@@ -1,0 +1,23 @@
+type ApiResponse<T> = {
+  sucesso: boolean;
+  dados: T | null;
+  erro: string | null;
+};
+
+interface Usuario {
+  id: number;
+  nome: string;
+  email: string;
+}
+
+function buscarUsuarios(): ApiResponse<Usuario[]> {
+  const usuariosMock: Usuario[] = [
+    { id: 1, nome: "Admin", email: "admin@sistema.com" }
+  ];
+  
+  return {
+    sucesso: true,
+    dados: usuariosMock,
+    erro: null
+  };
+}
