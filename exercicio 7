@@ -1,0 +1,3 @@
+function contarOcorrencias<T>(array: T[], elemento: T): number {
+  return array.filter(item => item === elemento).length;
+}
