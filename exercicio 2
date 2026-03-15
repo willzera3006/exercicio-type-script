@@ -1,0 +1,3 @@
+function formatarNome(nome: string, sobrenome?: string): string {
+  return sobrenome ? `${nome} ${sobrenome}` : nome;
+}
